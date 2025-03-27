@@ -7,12 +7,7 @@ let
   plugins = ./plugins;
 in
 {
-  imports =
-    (foldlAttrs (
-      prev: name: type:
-      prev ++ optional (type == "directory") (plugins + "/${name}")
-    ) [ ] (readDir plugins))
-    ++ [
+  imports = [
       ./options.nix
     ];
 }

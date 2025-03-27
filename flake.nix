@@ -1,59 +1,70 @@
 {
-  description = "A nixvim configuration";
+  description = "What am I doing with my life";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixvim.url = "github:nix-community/nixvim";
-
-    # Plugins built for source
-    snacks-nvim = {
-      url = "github:folke/snacks.nvim";
-      flake = false;
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
     };
   };
 
   outputs =
-    { nixpkgs, nixvim, ... }@inputs:
-    let
+    {
+      nixpkgs,
+      nixvim,
+      flake-parts,
+      pre-commit-hooks,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
-        "x86_64-linux"
         "aarch64-linux"
-        "x86_64-darwin"
+        "x86_64-linux"
         "aarch64-darwin"
+        "x86_64-darwin"
       ];
 
-      forAllSystems = fn: nixpkgs.lib.genAttrs systems fn;
-    in
-    {
-      packages = forAllSystems (
-        system:
+      perSystem =
+        {
+          system,
+          pkgs,
+          self',
+          lib,
+          ...
+        }:
         let
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
-            inherit system;
-            module = import ./config;
-            extraSpecialArgs = { inherit inputs; };
+            inherit pkgs;
+            module = ./config; 
+            extraSpecialArgs = {
+              inherit inputs system;
+            };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
-          default = nvim;
-        }
-      );
-
-      checks = forAllSystems (
-        system:
-        let
-          nixvimLib = nixvim.lib.${system};
-          nixvimModule = {
-            inherit system;
-            module = import ./config;
-            extraSpecialArgs = { inherit inputs; };
+          checks = {
+            pre-commit-check = pre-commit-hooks.lib.${system}.run {
+              src = ./.;
+              hooks = {
+                statix.enable = true;
+                nixfmt-rfc-style.enable = true;
+              };
+            };
           };
-        in
-        {
-          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-        }
-      );
+
+          formatter = pkgs.nixfmt-rfc-style;
+
+          packages.default = nvim;
+
+          devShells = { 
+            default = with pkgs; mkShell { inherit (self'.checks.pre-commit-check) shellHook; }; 
+          };
+        };
     };
 }
