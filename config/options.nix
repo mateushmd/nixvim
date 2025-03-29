@@ -9,9 +9,16 @@
       };
     };
 
+    clipboard = {
+      providers.wl-copy.enable = true;
+    };
+
     opts = {
       number = true;
       relativenumber = true;
+
+      # Enabling clipboard
+      clipboard = "unnamedplus";
 
       # Set tabs to 2 spaces
       tabstop = 2;
@@ -25,6 +32,9 @@
 
       # Text wrap
       wrap = true;
+
+      # Well written code doesn't need folding
+      foldenable = false;
 
       # Wrapped lines will continue visually indented 
       breakindent = true;
@@ -60,7 +70,7 @@
       termguicolors = true;
 
       # Mapped sequence timeout in milliseconds 
-      timeoutlen = 20;
+      timeoutlen = 50;
 
       encoding = "utf-8";
       fileencoding = "utf-8";
@@ -68,7 +78,7 @@
       # More space in the command line for displaying messages
       cmdheight = 0;
 
-      # showmode = false;
+      showmode = false;
     };
   };
 }
