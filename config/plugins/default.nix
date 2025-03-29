@@ -1,15 +1,12 @@
 { lib, ... }:
 let
   inherit (builtins) readDir;
-  inherit (lib.attrsets) foldAttrs;
-  inherit (lib.lists) optional;
-
-  op = prev: name: type:
-    prev ++ optional (type == "directory") (this + "/${name}");
+  inherit (lib.attrsets) filterAttrs;
+  inherit (lib.lists) map;
 
   this = ./.;
 in
 {
-  imports = foldAttrs 
- [ ] (readDir this);
+  imports = map (name: this + "/${name}")
+    (lib.attrNames (filterAttrs (_: type: type == "dictionary") (readDir this)));
 }
