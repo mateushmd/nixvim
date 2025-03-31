@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
-  
+  colorschemes = import ./catppuccin;
 }

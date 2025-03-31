@@ -10,6 +10,7 @@
     };
 
     clipboard = {
+      register = "unnamedplus";
       providers.wl-copy.enable = true;
     };
 
@@ -17,16 +18,13 @@
       number = true;
       relativenumber = true;
 
-      # Enabling clipboard
-      clipboard = "unnamedplus";
-
       # Set tabs to 2 spaces
       tabstop = 2;
       softtabstop = 2;
       showtabline = 0;
       expandtab = true;
 
-      # 2 spaces auto indent 
+      # 2 spaces auto indent
       smartindent = true;
       shiftwidth = 2;
 
@@ -36,29 +34,29 @@
       # Well written code doesn't need folding
       foldenable = false;
 
-      # Wrapped lines will continue visually indented 
+      # Wrapped lines will continue visually indented
       breakindent = true;
 
       # Position of new buffers
       splitbelow = true;
       splitright = true;
 
-      # Why tf 'a' enables the mouse 
+      # Why tf 'a' enables the mouse
       mouse = "a";
 
       # Better searching
       ignorecase = true;
-      smartcase = true; 
+      smartcase = true;
 
-      # Autosaving when nothing is typed after some milliseconds 
-      updatetime = 50; 
+      # Autosaving when nothing is typed after some milliseconds
+      updatetime = 50;
 
-      # Auto complete options 
+      # Auto complete options
       completeopt = [
         "menuone" # Always shows the suggestion menu
-        "noselect" # Disables auto select from suggestions 
-        "noinsert" # Disables auto insert suggestion 
-      ]; 
+        "noselect" # Disables auto select from suggestions
+        "noinsert" # Disables auto insert suggestion
+      ];
 
       # Enable persistent undo history
       swapfile = false;
@@ -69,7 +67,7 @@
       # 24-bit colors
       termguicolors = true;
 
-      # Mapped sequence timeout in milliseconds 
+      # Mapped sequence timeout in milliseconds
       timeoutlen = 50;
 
       encoding = "utf-8";

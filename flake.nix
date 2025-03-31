@@ -6,9 +6,11 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -40,7 +42,7 @@
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             inherit pkgs;
-            module = ./config; 
+            module = import ./config;
             extraSpecialArgs = {
               inherit inputs system;
             };
@@ -62,9 +64,11 @@
 
           packages.default = nvim;
 
-          devShells = { 
-            default = with pkgs; mkShell { inherit (self'.checks.pre-commit-check) shellHook; }; 
-          };
+          devShells.default =
+            with pkgs;
+            mkShell {
+              inherit (self'.checks.pre-commit-check) shellHook;
+            };
         };
     };
 }
