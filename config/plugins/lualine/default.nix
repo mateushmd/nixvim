@@ -71,15 +71,15 @@ in
             separator.right = "";
           }
           {
-            __unkeyed = "progress";  
-            separator.left = ""; 
+            __unkeyed = "progress";
+            separator.left = "";
             separator.right = "";
           }
         ];
         lualine_z = [
           {
             __unkeyed = "branch";
-            separator.left = ""; 
+            separator.left = "";
             separator.right = "";
           }
         ];

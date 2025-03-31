@@ -44,6 +44,9 @@
       # Why tf 'a' enables the mouse
       mouse = "a";
 
+      # Keeps at least 8 lines above/bellow cursor except on start/end
+      scrolloff = 9;
+
       # Better searching
       ignorecase = true;
       smartcase = true;
