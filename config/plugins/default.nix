@@ -16,5 +16,6 @@
     ./colorizer
     ./lualine
     ./themes
+    ./treesitter
   ];
 }
