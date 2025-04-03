@@ -2,7 +2,7 @@
 {
   imports = [
     ./plugins
-    ./ftplugins
+    ./autocmds.nix
     ./options.nix
   ];
 }
