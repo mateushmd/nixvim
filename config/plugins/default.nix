@@ -13,8 +13,11 @@
   */
 
   imports = [
+    ./cmp
     ./colorizer
+    ./lsp
     ./lualine
+    ./markview
     ./themes
     ./treesitter
   ];
