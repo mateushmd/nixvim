@@ -18,6 +18,7 @@
     ./lsp
     ./lualine
     ./markview
+    ./telescope
     ./themes
     ./treesitter
   ];

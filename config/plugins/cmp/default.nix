@@ -7,11 +7,22 @@
         snippet = {
           expand = "luasnip";
         };
+        formatting = {
+          fields = [
+            "kind"
+            "abbr"
+            "menu"
+          ];
+        };
         sources = [
           { name = "nvim_lsp"; }
           { name = "path"; }
           { name = "buffer"; }
         ];
+        mapping = {
+          "<C-j>" = "cmp.mapping.select_next_item()";
+          "<C-k>" = "cmp.mapping.select_prev_item()";
+        };
       };
     };
     cmp-nvim-lsp = {
