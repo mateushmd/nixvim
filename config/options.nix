@@ -18,15 +18,16 @@
       number = true;
       relativenumber = true;
 
-      # Set tabs to 2 spaces
-      tabstop = 2;
-      softtabstop = 2;
+      # Set tabs to 4 spaces
+      tabstop = 4;
+      softtabstop = 4;
       showtabline = 0;
       expandtab = true;
 
-      # 2 spaces auto indent
+      # 4 spaces auto indent
+      autoindent = true;
       smartindent = true;
-      shiftwidth = 2;
+      shiftwidth = 4;
 
       # Text wrap
       wrap = true;

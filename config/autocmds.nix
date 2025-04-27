@@ -3,9 +3,11 @@
     {
       event = "FileType";
       pattern = [
-        "java"
+        "css"
+        "html"
+        "nix"
       ];
-      command = "set tabstop=4 shiftwidth=4";
+      command = "set tabstop=2 softtabstop=2 shiftwidth=2";
     }
   ];
 }
