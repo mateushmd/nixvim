@@ -13,7 +13,8 @@
   */
 
   imports = [
-    ./cmp
+    /*./cmp*/
+    ./blink-cmp
     ./colorizer
     ./lsp
     ./lualine

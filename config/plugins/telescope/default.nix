@@ -16,7 +16,7 @@
       };
     };
     keymaps = {
-      "<leader><space>" = {
+      "<leader>f" = {
         action = "find_files";
         options = {
           desc = "Find files";

@@ -72,7 +72,7 @@
       termguicolors = true;
 
       # Mapped sequence timeout in milliseconds
-      timeoutlen = 50;
+      timeoutlen = 200;
 
       encoding = "utf-8";
       fileencoding = "utf-8";

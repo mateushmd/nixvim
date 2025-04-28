@@ -1,7 +1,7 @@
 {
   plugins = {
     cmp = {
-      enable = true;
+      enable = false;
       settings = {
         autoEnableSources = true;
         snippet = {
@@ -27,13 +27,13 @@
       };
     };
     cmp-nvim-lsp = {
-      enable = true;
+      enable = false;
     };
     cmp-path = {
-      enable = true;
+      enable = false;
     };
     cmp-buffer = {
-      enable = true;
+      enable = false;
     };
   };
 }
