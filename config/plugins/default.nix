@@ -22,5 +22,6 @@
     ./telescope
     ./themes
     ./treesitter
+    ./trouble
   ];
 }
