@@ -72,7 +72,7 @@
       termguicolors = true;
 
       # Mapped sequence timeout in milliseconds
-      timeoutlen = 200;
+      timeoutlen = 400;
 
       encoding = "utf-8";
       fileencoding = "utf-8";
@@ -81,6 +81,16 @@
       cmdheight = 0;
 
       showmode = false;
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
     };
   };
 }
