@@ -1,19 +1,12 @@
-{ ... }:
+{ lib, ... }:
 {
-  /*
-    imports = map
-    (name:
-      this + "/${name}"
-    )
-    (lib.attrNames
-      (filterAttrs
-        (_: type: type == "dictionary") (readDir this)
-      )
-    );
-  */
+  imports = (lib.attrsets (
+    prev: name: type:
+    prev ++ lib.lists (type == "directory") (./. + "${name}")
+  ) [] (builtins.readDir ./.));
 
+  /*
   imports = [
-    /*./cmp*/
     ./blink-cmp
     ./colorizer
     ./lsp
@@ -22,6 +15,6 @@
     ./telescope
     ./themes
     ./treesitter
-    ./trouble
   ];
+  */
 }

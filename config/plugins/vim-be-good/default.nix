@@ -1,6 +1,6 @@
 {
   plugins = {
-    trouble = {
+    vim-be-good = {
       enable = true;
     };
   };
