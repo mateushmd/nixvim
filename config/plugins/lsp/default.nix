@@ -9,6 +9,9 @@
         nixd.enable = true;
         jdtls.enable = true;
         clangd.enable = true;
+        html.enable = true;
+        cssls.enable = true;
+        ts-ls.enable = true;
       };
     };
     lsp-lines = {
