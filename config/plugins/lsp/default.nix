@@ -11,7 +11,7 @@
         clangd.enable = true;
         html.enable = true;
         cssls.enable = true;
-        ts-ls.enable = true;
+        ts_ls.enable = true;
       };
     };
     lsp-lines = {
