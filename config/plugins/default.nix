@@ -10,6 +10,7 @@
   imports = [
     ./blink-cmp
     ./colorizer
+    ./hex
     ./lsp
     ./lualine
     ./markview
