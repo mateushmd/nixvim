@@ -7,11 +7,9 @@
       enable = true;
       servers = {
         nixd.enable = true;
-        jdtls.enable = true;
         clangd.enable = true;
         html.enable = true;
         cssls.enable = true;
-        ts_ls.enable = true;
       };
     };
     lsp-lines = {

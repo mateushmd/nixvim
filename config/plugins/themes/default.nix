@@ -1,3 +1,3 @@
 {
-  colorschemes = import ./catppuccin;
+  colorschemes = import ./gruvbox-material;
 }

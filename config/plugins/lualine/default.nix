@@ -1,5 +1,5 @@
 let
-  colors = import ./colors/catppuccin.nix;
+  colors = import ./colors/gruvbox-material.nix;
 in
 {
   plugins = {
