@@ -2,6 +2,7 @@
   plugins = {
     lsp-format = {
       enable = true;
+      settings.typescript.exclude = [ "ts_ls" ];
     };
     lsp = {
       enable = true;
