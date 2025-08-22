@@ -6,10 +6,16 @@
     lsp = {
       enable = true;
       servers = {
-        nixd.enable = true;
+        nil_ls.enable = true; # Nix <3
         clangd.enable = true;
+        rust_analyzer = { 
+          enable = true;
+          installRustc = false;
+          installCargo = false;
+        };
         html.enable = true;
         cssls.enable = true;
+        ts_ls.enable = true; # TipoEscripto :(
       };
     };
     lsp-lines = {
