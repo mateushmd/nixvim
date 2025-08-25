@@ -10,6 +10,7 @@
   imports = [
     ./blink-cmp
     ./colorizer
+    ./csvview
     ./hex
     ./lsp
     ./lualine

@@ -17,6 +17,7 @@
         html.enable = true;
         cssls.enable = true;
         ts_ls.enable = true; # TipoEscripto :(
+        basedpyright.enable = true;
       };
     };
     lsp-lines = {
