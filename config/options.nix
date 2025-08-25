@@ -81,16 +81,6 @@
       cmdheight = 0;
 
       showmode = false;
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
     };
   };
 }
