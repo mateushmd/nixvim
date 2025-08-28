@@ -11,8 +11,8 @@
         clangd.enable = true;
         rust_analyzer = { 
           enable = true;
-          installRustc = false;
-          installCargo = false;
+          installRustc = true;
+          installCargo = true;
         };
         html.enable = true;
         cssls.enable = true;
