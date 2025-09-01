@@ -14,6 +14,7 @@
     ./hex
     ./lsp
     ./lualine
+    ./magma
     ./markview
     ./telescope
     ./themes
