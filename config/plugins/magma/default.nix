@@ -1,3 +1,3 @@
 {
-  magma-nvim.enable = true;
+  plugins.magma-nvim.enable = true;
 }
