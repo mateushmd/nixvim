@@ -9,7 +9,7 @@
       servers = {
         nil_ls.enable = true; # Nix <3
         clangd.enable = true;
-        rust_analyzer = { 
+        rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
@@ -18,6 +18,12 @@
         cssls.enable = true;
         ts_ls.enable = true; # TipoEscripto :(
         basedpyright.enable = true;
+        arduino_language_server = {
+          enable = true;
+          config.filetypes = [
+            "ino"
+          ];
+        };
       };
     };
     lsp-lines = {
