@@ -20,9 +20,6 @@
         basedpyright.enable = true;
         arduino_language_server = {
           enable = true;
-          config.filetypes = [
-            "ino"
-          ];
         };
       };
     };
