@@ -8,7 +8,17 @@
       enable = true;
       servers = {
         nil_ls.enable = true; # Nix <3
-        clangd.enable = true;
+        clangd = {
+          enable = true;
+          cmd = [
+            "clangd"
+            "--background-index"
+          ];
+          filetypes = [
+            "c"
+            "cpp"
+          ];
+        };
         rust_analyzer = {
           enable = true;
           installRustc = true;
