@@ -28,9 +28,7 @@
         cssls.enable = true;
         ts_ls.enable = true; # TipoEscripto :(
         basedpyright.enable = true;
-        arduino_language_server = {
-          enable = true;
-        };
+        dartls.enable = true;
       };
     };
     lsp-lines = {
