@@ -33,5 +33,12 @@
       key = "<Right>";
       action = "<Nop>";
     }
+    {
+      mode = [
+        "i"
+      ];
+      key = "jk";
+      action = "<Esc>";
+    }
   ];
 }
