@@ -29,6 +29,7 @@
         ts_ls.enable = true; # TipoEscripto :(
         basedpyright.enable = true;
         dartls.enable = true;
+        fish_lsp.enable = true;
       };
     };
     lsp-lines = {
