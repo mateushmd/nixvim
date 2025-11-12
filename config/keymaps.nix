@@ -37,6 +37,13 @@
       mode = [
         "i"
       ];
+      key = "<Esc>";
+      action = "<Nop>";
+    }
+    {
+      mode = [
+        "i"
+      ];
       key = "jk";
       action = "<Esc>";
     }
