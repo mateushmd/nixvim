@@ -17,6 +17,7 @@
     ./markview
     ./telescope
     ./themes
+    ./toggleterm
     ./treesitter
   ];
 }
