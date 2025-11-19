@@ -7,10 +7,7 @@
     lsp = {
       enable = true;
       servers = {
-        nil_ls = {
-          enable = true; # Nix <3
-          settings.nix.flake.autoArchive = true;
-        };
+        nixd.enable = true;
         clangd = {
           enable = true;
           cmd = [
