@@ -9,10 +9,11 @@
       defaults = {
         layout_config = {
           horizontal = {
-            prompt_position = "top";
+            prompt_position = "bottom";
           };
         };
         sorting_strategy = "ascending";
+        mappings.i."<leader>f".__raw = "require('telescope.actions').close";
       };
     };
     keymaps = {
