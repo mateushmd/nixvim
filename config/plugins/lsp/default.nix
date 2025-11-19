@@ -56,6 +56,7 @@
         vim.diagnostic.open_float(nil, {
           focusable = false,
           scope = "line",
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" }
         })
       end,
     })
