@@ -1,10 +1,10 @@
 { lib, ... }:
 {
   /*
-  imports = (lib.attrsets (
-    prev: name: type:
-    prev ++ lib.lists (type == "directory") (./. + "${name}")
-  ) [] (builtins.readDir ./.));
+    imports = (lib.attrsets (
+      prev: name: type:
+      prev ++ lib.lists (type == "directory") (./. + "${name}")
+    ) [] (builtins.readDir ./.));
   */
 
   imports = [
@@ -14,7 +14,6 @@
     ./hex
     ./lsp
     ./lualine
-    ./magma
     ./markview
     ./telescope
     ./themes

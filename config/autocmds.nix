@@ -1,6 +1,10 @@
 {
   config.autoCmd = [
     {
+      event = "BuffWinEnter";
+      command = "only";
+    }
+    {
       event = "FileType";
       pattern = [
         "nix"

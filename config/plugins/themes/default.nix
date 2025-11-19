@@ -1,3 +1,3 @@
 {
-  colorschemes = import ./gruvbox-material;
+  colorschemes = import ./gruvbox-material.nix;
 }
