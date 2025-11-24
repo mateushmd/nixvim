@@ -1,23 +1,14 @@
 { lib, ... }:
+let
+  inherit (lib.attrsets) filterAttrs;
+  inherit (builtins) attrNames map readDir toPath;
+in
 {
-  /*
-    imports = (lib.attrsets (
-      prev: name: type:
-      prev ++ lib.lists (type == "directory") (./. + "${name}")
-    ) [] (builtins.readDir ./.));
-  */
-
-  imports = [
-    ./blink-cmp
-    ./colorizer
-    ./csvview
-    ./hex
-    ./lsp
-    ./lualine
-    ./markview
-    ./telescope
-    ./themes
-    ./toggleterm
-    ./treesitter
-  ];
+  imports = map (name : toPath "${./.}/${name}") (
+    attrNames (
+      filterAttrs (name: value: value == "directory") (
+        readDir ./.
+      )
+    )
+  );
 }
