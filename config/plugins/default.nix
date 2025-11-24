@@ -1,14 +1,12 @@
 { lib, ... }:
-let
-  inherit (lib.attrsets) filterAttrs;
-  inherit (builtins) attrNames map readDir toPath;
-in
 {
-  imports = map (name : toPath "${./.}/${name}") (
-    attrNames (
-      filterAttrs (name: value: value == "directory") (
-        readDir ./.
-      )
-    )
-  );
+  imports = 
+    let
+      entries = builtins.readDir ./.;
+      
+      dirs = lib.filterAttrs (name: type: type == "directory") entries;
+
+      paths = lib.mapAttrsToList (name: _: ./. + "/${name}") dirs;
+    in
+    paths;
 }
