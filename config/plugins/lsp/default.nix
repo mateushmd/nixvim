@@ -1,9 +1,5 @@
 {
   plugins = {
-    lsp-format = {
-      enable = true;
-      settings.typescript.exclude = [ "ts_ls" ];
-    };
     lsp = {
       enable = true;
       servers = {
@@ -31,9 +27,6 @@
         fish_lsp.enable = true;
         asm_lsp.enable = true;
       };
-    };
-    lsp-lines = {
-      enable = false;
     };
   };
 
