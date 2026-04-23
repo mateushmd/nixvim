@@ -1,5 +1,5 @@
 let
-  colors = import ./colors/gruvbox-material.nix;
+  colors = import ./colors/tokyonight.nix;
 in
 {
   plugins = {

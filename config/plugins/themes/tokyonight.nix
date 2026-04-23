@@ -1,0 +1,5 @@
+{
+  tokyonight = {
+    enable = true;
+  };
+}
