@@ -2,7 +2,13 @@
   plugins.telescope = {
     enable = true;
     extensions = {
-      file-browser.enable = true;
+      file-browser = { 
+        enable = true;
+        settings = {
+          respect_gitignore = true;
+          hidden = true;
+        };
+      };
       fzf-native.enable = true;
     };
     settings = {
