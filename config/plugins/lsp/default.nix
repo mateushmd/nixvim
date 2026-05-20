@@ -26,6 +26,7 @@
         basedpyright.enable = true;
         fish_lsp.enable = true;
         asm_lsp.enable = true;
+        svls.enable = true;
       };
     };
   };
