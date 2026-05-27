@@ -6,7 +6,7 @@
       indent.enable = false;
       highlight.enable = true;
     };
-    folding = false;
+    folding.enable = false;
     nixvimInjections = true;
     grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
   };
