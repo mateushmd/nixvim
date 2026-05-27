@@ -3,7 +3,8 @@
     lsp = {
       enable = true;
       servers = {
-        nixd.enable = true;
+        asm_lsp.enable = true;
+        basedpyright.enable = true;
         clangd = {
           enable = true;
           cmd = [
@@ -15,18 +16,18 @@
             "cpp"
           ];
         };
+        cssls.enable = true;
+        fish_lsp.enable = true;
+        html.enable = true;
+        lua_ls.enable = true;
+        nixd.enable = true;
         rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
         };
-        html.enable = true;
-        cssls.enable = true;
-        ts_ls.enable = true; # TipoEscripto :(
-        basedpyright.enable = true;
-        fish_lsp.enable = true;
-        asm_lsp.enable = true;
         svls.enable = true;
+        ts_ls.enable = true;
       };
     };
   };
