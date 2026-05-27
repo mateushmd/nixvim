@@ -17,18 +17,21 @@
       perSystem = { system, pkgs, ... }:
         let
           nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            inherit pkgs;
-            module = import ./config;
-            extraSpecialArgs = {
-
-            };
-          };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+              "vim-be-good"
+            ];
+          };
+
           formatter = pkgs.nixfmt-rfc-style;
-          packages.default = nvim;
+
+          packages.default = nixvim'.makeNixvimWithModule {
+            inherit pkgs;
+            module = import ./config;
+          };
         };
     };
 }
