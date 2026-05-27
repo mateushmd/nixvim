@@ -61,5 +61,27 @@
       key = "<C-q>";
       action = ":w<CR>";
     }
+    {
+      mode = [
+        "n"
+      ];
+      key = "gd";
+      action = "<cmd>lua vim.lsp.buf.definition()<CR>";
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+    {
+      mode = [
+        "n"
+      ];
+      key = "gD";
+      action = "<cmd>lua vim.lsp.buf.declaration()<CR>";
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
   ];
 }
