@@ -81,6 +81,8 @@
       cmdheight = 0;
 
       showmode = false;
+
+      colorcolumn = "80";
     };
   };
 }
