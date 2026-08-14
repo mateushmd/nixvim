@@ -14,35 +14,19 @@ in
             left = "";
             right = "";
           };
-          theme = {
-            normal = {
-              a = {
-                bg = "nil";
-              };
-              b = {
-                bg = "nil";
-              };
-              c = {
-                bg = "nil";
-              };
-              x = {
-                bg = "nil";
-              };
-              y = {
-                bg = "nil";
-              };
-              z = {
-                bg = "nil";
-              };
-            };
+          theme.normal = {
+            a.bg = "NONE";
+            b.bg = "NONE";
+            c.bg = "NONE";
+            x.bg = "NONE";
+            y.bg = "NONE";
+            z.bg = "NONE";
           };
-          disabled_filetypes = {
-            statusline = [
-              "dashboard"
-              "alpha"
-              "starter"
-            ];
-          };
+          disabled_filetypes.statusline = [
+            "dashboard"
+            "alpha"
+            "starter"
+          ];
         };
         sections = {
           lualine_a = [
@@ -61,20 +45,56 @@ in
             {
               __unkeyed = "mode";
               color.fg = colors.base08;
-              separator.left = "";
-              separator.right = "";
-            }
-            {
-              __unkeyed = "location";
-              color.fg = colors.base0F;
-              separator.left = "";
-              separator.right = "";
             }
             {
               __unkeyed = "filename";
               color.fg = colors.base09;
-              separator.left = "";
-              separator.right = "";
+            }
+            {
+              __unkeyed = "location";
+              color.fg = colors.base0F;
+            }
+            {
+              __unkeyed = "progress";
+              color.fg = colors.base0F;
+            }
+            {
+              __unkeyed = "diagnostics";
+              sources = [ "nvim_diagnostic" ];
+              symbols = {
+                error = " ";
+                warn = " ";
+                info = " ";
+              };
+              diagnostics_color = {
+                error.fg = "#ec5f67";
+                warn.fg = "#ecbe7b";
+                info.fg = "#008080";
+              };
+            }
+            {
+              __unkeyed.__raw = ''
+                function()
+                  local msg = 'No Active Lsp'
+                  local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+                  local clients = vim.lsp.get_clients()
+                  if next(clients) == nil then
+                    return msg
+                  end
+                  for _, client in ipairs(clients) do
+                    local filetypes = client.config.filetypes
+                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                      return client.name
+                    end
+                  end
+                  return msg
+                end
+              '';
+              icon = " LSP:";
+              color = { 
+                fg = "#ffffff"; 
+                gui = "bold"; 
+              };
             }
           ];
           lualine_x = [
@@ -84,20 +104,23 @@ in
               icon_only = false;
               icon.align = "left";
               color.fg = colors.base0F;
-              separator.left = "";
-              separator.right = "";
-            }
-            {
-              __unkeyed = "progress";
-              color.fg = colors.base0F;
-              separator.left = "";
-              separator.right = "";
             }
             {
               __unkeyed = "branch";
               color.fg = colors.base08;
-              separator.left = "";
-              separator.right = "";
+            }
+            {
+              __unkeyed = "diff";
+              symbols = { 
+                added = " ";
+                modified = "󰝤 ";
+                removed = " ";
+              };
+              diff_color = {
+                added.fg = "#98be65";
+                modified.fg = "#ff8800";
+                removed.fg = "#ec5f67";
+              };
             }
           ];
           lualine_y = [ "" ];
