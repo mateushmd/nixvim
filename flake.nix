@@ -4,11 +4,16 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    devshell.url = "github:numtide/devshell";
     nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = { nixvim, flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.devshell.flakeModule
+      ];
+
       systems = [
         "aarch64-linux"
         "x86_64-linux"
@@ -31,6 +36,19 @@
           packages.default = nixvim'.makeNixvimWithModule {
             inherit pkgs;
             module = import ./config;
+          };
+
+          devshells.default = {
+            devshell.startup.shell.text = ''
+              exec fish -i
+            '';
+
+            packages = [
+              (nixvim'.makeNixvimWithModule {
+                inherit pkgs;
+                module = import ./config;
+              })
+            ];
           };
         };
     };
