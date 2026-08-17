@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ lib, pkgs, ... }: 
 let
   envHost = builtins.getEnv "hostname";
   host = if envHost != "" then envHost else "nixos";
@@ -25,7 +25,16 @@ in
       fish_lsp.enable = true;
       html.enable = true;
       lua_ls.enable = true;
-      nil_ls.enable = true;
+      nil_ls = {
+        enable = true;
+        settings = lib.nixvim.mkRaw ''
+          ['nil'] = {
+            nix = {
+              autoArchive = true,
+            },
+          },
+        '';
+      };
       nixd = {
         enable = true;
         /*
