@@ -27,8 +27,8 @@ in
       lua_ls.enable = true;
       nil_ls = {
         enable = true;
-        settings = lib.nixvim.mkRaw ''
-          ['nil'] = {
+        settings.nil.__raw = ''
+          {
             nix = {
               autoArchive = true,
             },
