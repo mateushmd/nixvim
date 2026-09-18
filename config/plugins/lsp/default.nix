@@ -61,6 +61,7 @@ in
       };
       svls.enable = true;
       ts_ls.enable = true;
+      roslyn_ls.enable = true;
     };
   };
 
