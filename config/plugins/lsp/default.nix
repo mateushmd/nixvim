@@ -61,7 +61,18 @@ in
       };
       svls.enable = true;
       ts_ls.enable = true;
-      roslyn.enable = true;
+      roslyn = {
+        enable = true;
+        extraOptions = {
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = false;
+              };
+            };
+          };
+        };
+      };
     };
   };
 
