@@ -61,7 +61,7 @@ in
       };
       svls.enable = true;
       ts_ls.enable = true;
-      roslyn = {
+      roslyn_ls = {
         enable = true;
         extraOptions = {
           capabilities = {
