@@ -21,6 +21,7 @@ in
           "cpp"
         ];
       };
+      cmake.enable = true;
       cssls.enable = true;
       fish_lsp.enable = true;
       html.enable = true;
