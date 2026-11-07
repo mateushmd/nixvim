@@ -19,7 +19,7 @@
         "x86_64-linux"
       ];
 
-      perSystem = { system, pkgs, ... }:
+      perSystem = { config, system, pkgs, ... }:
         let
           nixvim' = nixvim.legacyPackages.${system};
         in
@@ -33,9 +33,32 @@
 
           formatter = pkgs.nixfmt-rfc-style;
 
-          packages.default = nixvim'.makeNixvimWithModule {
-            inherit pkgs;
-            module = import ./config;
+          packages = {
+            default = nixvim'.makeNixvimWithModule {
+              inherit pkgs;
+              module = import ./config;
+            };
+
+            list-grammars = pkgs.writeShellApplication {
+              name = "list-grammars";
+              runtimeInputs = [ pkgs.nix pkgs.jq ];
+
+              text = ''
+                TARGET_SYSTEM="${system}"
+
+                echo "--- Gramáticas Disponíveis no nvim-treesitter ---"
+                
+                nix eval --json "nixpkgs#legacyPackages.$TARGET_SYSTEM.vimPlugins.nvim-treesitter.grammarPlugins" \
+                  --apply "builtins.attrNames" \
+                  | jq -r '.[]' \
+                  | column
+              '';
+            };
+          };
+
+          apps.list-grammars = {
+            type = "app";
+            program = "${config.packages.list-grammars}/bin/list-grammars";
           };
 
           devshells.default = {
