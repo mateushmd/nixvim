@@ -1,9 +1,4 @@
-{ lib, pkgs, ... }: 
-let
-  envHost = builtins.getEnv "hostname";
-  host = if envHost != "" then envHost else "nixos";
-  nixosConfigPath = "${builtins.getEnv "HOME"}/repos/nixos";
-in 
+{ ... }: 
 {
   plugins.lsp = {
     enable = true;
@@ -35,29 +30,15 @@ in
           },
         '';
       };
-      nixd = {
-        enable = true;
-        /*
-        extraOptions = {
-          nixpkgs.expr = ''
-              import <nixpkgs> { }
-            '';
-          options = {
-            nixos.expr = ''
-              (builtins.getflake (builtins.tostring ${nixosConfigPath})).nixosconfigurations.${host}.options;
-            '';
-
-            nixvim.expr = ''
-              (builtins.getflake "github:nix-community/nixvim").nixvimconfigurations.${pkgs.system}.default.options;
-            '';
-          };
-        };
-        */
-      };
+      nixd.enable = true;
       rust_analyzer = {
         enable = true;
-        installRustc = true;
-        installCargo = true;
+        installRustc = false;
+        installCargo = false;
+        settings = {
+          cargo.targetDir = true;
+          check.command = "clippy";
+        };
       };
       svls.enable = true;
       ts_ls.enable = true;
